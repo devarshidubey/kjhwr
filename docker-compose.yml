@@ -1,0 +1,9 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: ./api/.env
+    restart: unless-stopped
