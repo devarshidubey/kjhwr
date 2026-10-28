@@ -1,9 +1,14 @@
 import os
 
 class Config:
-    MONGO_URI = os.environ.get('MONGO_URI')
-    _raw_origins = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:4100,http://0.0.0.0:4100')
-    CORS_ORIGIN_WHITELIST = [origin.strip() for origin in _raw_origins.split(',')]
+    CORS_ORIGIN_WHITELIST = [
+        o.strip()
+        for o in os.environ.get(
+            "CORS_ORIGIN_WHITELIST",
+            "http://localhost:3000,http://localhost:5173",
+        ).split(",")
+        if o.strip()
+    ]
 
 class ProdConfig(Config):
     ENV = 'prod'

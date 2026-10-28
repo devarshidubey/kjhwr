@@ -23,4 +23,5 @@ USER appuser
 
 EXPOSE 8000
 #CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "wsgi:app"]
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "wsgi:app"]
+# CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "wsgi:app"]
+CMD ["gunicorn", "-w", "2", "--timeout", "120", "-b", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "wsgi:app"]
