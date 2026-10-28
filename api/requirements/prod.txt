@@ -1,7 +1,4 @@
 flask
 gunicorn
-pymongo
-flask-pymongo
 flask-cors
-marshmallow
-python-dateutil
+requests
