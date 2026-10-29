@@ -20,7 +20,6 @@ def forecast():
     delivery_date = in_scope(parse_date(request.args, "delivery_date"), "delivery_date")
     cutoff = parse_cutoff(request.args)
     return jsonify(services.get_decision_forecast(delivery_date, cutoff)), 200
-    # return {'hi': 'hi'}, 200
 
 
 @blueprint.route("/comparison", methods=["GET"]) #to verify the prediciton results with actual data
@@ -29,7 +28,6 @@ def comparison():
     delivery_date = in_scope(parse_date(request.args, "delivery_date"), "delivery_date")
     cutoff = parse_cutoff(request.args)
     return jsonify(services.build_comparison(delivery_date, cutoff)), 200
-    # return {'hi': 'hi'}, 200
 
 
 @blueprint.route("/accuracy", methods=["GET"])
